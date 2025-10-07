@@ -1,6 +1,6 @@
 const wikiArticles = {
     "home": {
-        "title": "Кошёмоjо",
+        "title": "Тест",
         "content": `
             <p>Тест</p>
         `
