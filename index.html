@@ -14,7 +14,7 @@
             min-height: 100vh;
         }
         header {
-            background-color: #4A90E2; /* Голубой цвет */
+            background-color: #4A90E2;
             color: white;
             padding: 1rem;
             text-align: center;
@@ -29,22 +29,25 @@
             padding: 1rem;
             border-right: 1px solid #ddd;
         }
-        article {
+        #content {
             flex: 1;
             padding: 2rem;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
+            background-color: white;
         }
         .article-link {
             color: #0969da;
             text-decoration: none;
             display: block;
             padding: 0.5rem;
+            margin: 0.5rem 0;
         }
         .article-link:hover {
             background-color: #e3f2fd;
+        }
+        #back-link {
+            display: none;
+            color: #d9534f;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -54,24 +57,50 @@
     </header>
 
     <main>
-        <nav>
-            <h2>Список статей</h2>
-            <ul>
-                <li><a class="article-link" href="#welcome">Главная страница</a></li>
-                <li><a class="article-link" href="#test">Тест</a></li>
-            </ul>
+        <nav id="sidebar">
+            <h2>Статьи</h2>
+            <a href="#" class="article-link" onclick="loadArticle('test.html')">тест0</a>
+            <a href="#" class="article-link" onclick="loadArticle('test.html')">тест1</a>
+            <a href="#" class="article-link" onclick="loadArticle('test.html')">тест2</a>
+            
+            <a href="#" id="back-link" onclick="goHome()">← Назад к списку</a>
         </nav>
 
-        <article>
-            <section id="welcome">
-                <p>Это главная страница нашей вики.</p>
-                <p>Для навигации используйте меню слева.</p>
-            </section>
-            
-            <section id="test">
-                <p>Какашки</p>
-            </section>
-        </article>
+        <div id="content">
+            <h2>Добро пожаловать!</h2>
+            <p>Выберите статью из списка слева для чтения.</p>
+        </div>
     </main>
+
+    <script>
+        function loadArticle(articleFile) {
+            fetch(articleFile)
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('content').innerHTML = html;
+                    // Показываем ссылку "Назад" и скрываем список статей
+                    document.getElementById('back-link').style.display = 'block';
+                    document.querySelectorAll('.article-link').forEach(link => {
+                        link.style.display = 'none';
+                    });
+                    document.querySelector('#sidebar h2').style.display = 'none';
+                })
+                .catch(error => {
+                    document.getElementById('content').innerHTML = '<p>Ошибка загрузки статьи</p>';
+                });
+        }
+
+        function goHome() {
+            document.getElementById('content').innerHTML = `
+                <h2>Добро пожаловать!</h2>
+                <p>Выберите статью из списка слева для чтения.</p>
+            `;
+            document.getElementById('back-link').style.display = 'none';
+            document.querySelectorAll('.article-link').forEach(link => {
+                link.style.display = 'block';
+            });
+            document.querySelector('#sidebar h2').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
