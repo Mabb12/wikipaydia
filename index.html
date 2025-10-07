@@ -4,7 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Айбийская Википедия</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #4A90E2; /* Голубой цвет */
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        main {
+            display: flex;
+            flex: 1;
+        }
+        nav {
+            width: 250px;
+            background-color: #f4f4f4;
+            padding: 1rem;
+            border-right: 1px solid #ddd;
+        }
+        article {
+            flex: 1;
+            padding: 2rem;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        .article-link {
+            color: #0969da;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem;
+        }
+        .article-link:hover {
+            background-color: #e3f2fd;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -12,13 +54,24 @@
     </header>
 
     <main>
-        <nav id="article-nav">
+        <nav>
             <h2>Список статей</h2>
-            <ul id="article-list"></ul>
+            <ul>
+                <li><a class="article-link" href="#welcome">Главная страница</a></li>
+                <li><a class="article-link" href="#test">Тест</a></li>
+            </ul>
         </nav>
-    </main>
 
-    <script src="wiki-data.js"></script>
-    <script src="script.js"></script>
+        <article>
+            <section id="welcome">
+                <p>Это главная страница нашей вики.</p>
+                <p>Для навигации используйте меню слева.</p>
+            </section>
+            
+            <section id="test">
+                <p>Какашки</p>
+            </section>
+        </article>
+    </main>
 </body>
 </html>
