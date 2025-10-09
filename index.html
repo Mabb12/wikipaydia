@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Айбийская Википедия</title>
+    <title>ли Аjб вики</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -53,21 +53,20 @@
 </head>
 <body>
     <header>
-        <h1>Айбийская Википедия</h1>
+        <h1>ли Аjб вики</h1>
     </header>
 
     <main>
         <nav id="sidebar">
             <h2>Статьи</h2>
-            <a href="#" class="article-link" onclick="loadArticle('test0.html')">Тест0</a>
-            <a href="#" class="article-link" onclick="loadArticle('test1.html')">Тест1</a>
+            <a href="#" class="article-link" onclick="loadArticle('test0.html')">ли фаре поко е сако</a>
             
-            <a href="#" id="back-link" onclick="goHome()">← Назад к списку</a>
+            <a href="#" id="back-link" onclick="goHome()">← ат коу фиро кис шанаj</a>
         </nav>
 
         <div id="content">
-            <h2>Добро пожаловать!</h2>
-            <p>Выберите статью из списка слева для чтения.</p>
+            <h2>син ат кен фино шуш томо!</h2>
+            <p>ат пил шанаj фиро леф пор ат фитело.</p>
         </div>
     </main>
 
@@ -85,14 +84,14 @@
                     document.querySelector('#sidebar h2').style.display = 'none';
                 })
                 .catch(error => {
-                    document.getElementById('content').innerHTML = '<p>Ошибка загрузки статьи</p>';
+                    document.getElementById('content').innerHTML = '<p>урта фиро нет</p>';
                 });
         }
 
         function goHome() {
             document.getElementById('content').innerHTML = `
-                <h2>Добро пожаловать!</h2>
-                <p>Выберите статью из списка слева для чтения.</p>
+                <h2>син кен ат фино шуш томо!</h2>
+                <p>пил шанаj фиро леф пор фитело.</p>
             `;
             document.getElementById('back-link').style.display = 'none';
             document.querySelectorAll('.article-link').forEach(link => {
