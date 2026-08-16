@@ -61,12 +61,12 @@
             <h2>Статьи</h2>
             <a href="#" class="article-link" onclick="loadArticle('test0.html')">ли фаре поко е сако</a>
             
-            <a href="#" id="back-link" onclick="goHome()">← ат коу фиро кис шанаj</a>
+            <a href="#" id="back-link" onclick="goHome()">← a kou firo kusi mojo</a>
         </nav>
 
         <div id="content">
-            <h2>син ат кен фино шуш томо!</h2>
-            <p>ат пил шанаj фиро леф пор ат фитело.</p>
+            <h2>li Ajpia wiki!</h2>
+            <p>sina a ken a tupa kohe li sina mojo ifes a lakaj piro tof Mape.</p>
         </div>
     </main>
 
@@ -84,14 +84,14 @@
                     document.querySelector('#sidebar h2').style.display = 'none';
                 })
                 .catch(error => {
-                    document.getElementById('content').innerHTML = '<p>урта фиро нет</p>';
+                    document.getElementById('content').innerHTML = '<p>pikoja</p>';
                 });
         }
 
         function goHome() {
             document.getElementById('content').innerHTML = `
-                <h2>син кен ат фино шуш томо!</h2>
-                <p>пил шанаj фиро леф пор фитело.</p>
+                <h2>li Ajpia wiki!</h2>
+                <p>sina a ken a tupa kohe li sina mojo ifes a lakaj piro tof Mape.</p>
             `;
             document.getElementById('back-link').style.display = 'none';
             document.querySelectorAll('.article-link').forEach(link => {
